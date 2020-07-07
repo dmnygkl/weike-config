@@ -1,0 +1,55 @@
+server:
+  port: 18080
+
+management:
+  server:
+    port: 18081
+
+spring:
+  redis:
+    redisson:
+      enabled: false
+
+ribbon:
+  ReadTimeout: 120000
+  ConnectTimeout: 120000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000
+zuul:
+  prefix: /hscw
+  add-host-header: true
+
+  host:
+    socket-timeout-millis: 120000
+    connect-timeout-millis: 240000
+
+  retryable: true     # 开启Zuul的重试
+  
+  sensitive-headers: 
+    - Cookie
+    - Set-Cookie
+    
+  ignored-services: 
+    - id-server
+    - eureka-server
+
+  ignored-patterns: 
+    - /hscw/**/static/**   # 静态资源布署到网关
+
+  routes:
+    accounting: #凭证操作
+      path: /accounting/**
+      serviceId: hs-fms-accounting-server
+
+    report: #报表
+      path: /report/**
+      serviceId: hs-fms-report-server
+
+    definition: #基础
+      path: /definition/**
+      serviceId: hs-fms-definition-server
