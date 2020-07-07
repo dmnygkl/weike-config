@@ -42,14 +42,14 @@ zuul:
     - /hscw/**/static/**   # 静态资源布署到网关
 
   routes:
-    accounting: #凭证操作
-      path: /accounting/**
-      serviceId: hs-fms-accounting-server
+    #accounting: #凭证操作
+     # path: /accounting/**
+     # serviceId: hs-fms-accounting-server
 
-    report: #报表
-      path: /report/**
-      serviceId: hs-fms-report-server
+  #  report: #报表
+    #  path: /report/**
+     # serviceId: hs-fms-report-server
 
-    definition: #基础
-      path: /definition/**
-      serviceId: hs-fms-definition-server
+   # definition: #基础
+    #  path: /definition/**
+    #  serviceId: hs-fms-definition-server
