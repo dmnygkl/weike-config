@@ -1,0 +1,9 @@
+server:
+  port: 9524
+spring:
+  application:
+    name: springcloud-zuul-geteway
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka

@@ -1,0 +1,3 @@
+com\panda\provider\SystemProviderApplication.class
+com\panda\provider\controller\EurekaUserController.class
+com\panda\provider\service\DepartmentServiceImpl.class
